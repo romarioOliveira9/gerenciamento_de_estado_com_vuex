@@ -74,7 +74,8 @@ export default {
         ])
     },
     created() {
-        this.$store.commit('listarTarefas', {
+        this.$store.commit({
+            type: 'listarTarefas',
             tarefas: [
                 { id: 1, titulo: 'Aprender Vue', concluido: true },
                 { id: 2, titulo: 'Aprender Vue Router', concluido: true },
