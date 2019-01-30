@@ -45,9 +45,13 @@ const tarefasModule = {
     }
 }
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
     modules: {
         contador: contadorModule,
         tarefas: tarefasModule
     }
 })
+
+console.log('Store: ', store)
+
+export default store
