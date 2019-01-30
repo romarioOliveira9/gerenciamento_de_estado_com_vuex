@@ -3,9 +3,14 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const contadorModule = {
     state: {
-        contador: 0,
+        contador: 0
+    }
+}
+
+const tarefasModule = {
+    state: {
         tarefas: []
     },
     getters: {
@@ -37,5 +42,12 @@ export default new Vuex.Store({
             console.log('Mutation: listarTarefas')
             commit('listarTarefas', { tarefas })
         }
+    }
+}
+
+export default new Vuex.Store({
+    modules: {
+        contador: contadorModule,
+        tarefas: tarefasModule
     }
 })
