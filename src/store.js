@@ -20,8 +20,12 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        listarTarefas: (context, payload) => {
-            context.commit('listarTarefas', payload)
+        listarTarefas: ({ commit }, payload) => {
+            console.log('action chamada...')
+            setTimeout(() => {
+                console.log('actions executada!')
+                commit('listarTarefas', payload)
+            }, 2000)
         }
     }
 })
