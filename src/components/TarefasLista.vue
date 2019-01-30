@@ -49,7 +49,7 @@
 
 <script>
 
-import { mapGetters, mapState } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefasListaIten from './TarefasListaIten.vue'
@@ -82,13 +82,19 @@ export default {
                     { id: 3, titulo: 'Aprender Vuex', concluido: false }
                 ]
             })*/
-            this.$store.dispatch('listarTarefas')
+            this.listarTarefas()
                 .then(() => {
                     console.log('Actions executadas!')
                 })
         }, 1000)
     },
     methods: {
+        ...mapActions({
+            carregarTarefas: 'listarTarefas',
+            listarTarefas: (dispatch, payload, options) => {
+                return dispatch('listarTarefas', payload, options)
+            }
+        }),
         exibirFormularioCriarTarefa(event) {
             if (this.tarefaSelecionada) {
                 this.tarefaSelecionada = undefined
