@@ -74,18 +74,9 @@ export default {
         ])
     },
     created() {
-        setTimeout(() => {
-            /*this.$store.dispatch('listarTarefas', {
-                tarefas: [
-                    { id: 1, titulo: 'Aprender Vue', concluido: true },
-                    { id: 2, titulo: 'Aprender Vue Router', concluido: true },
-                    { id: 3, titulo: 'Aprender Vuex', concluido: false }
-                ]
-            })*/
-            this.listarTarefas()
-                .then(() => {
-                    console.log('Actions executadas!')
-                })
+        setTimeout(async () => {
+            await this.listarTarefas()
+            console.log('Actions executadas!')
         }, 1000)
     },
     methods: {
