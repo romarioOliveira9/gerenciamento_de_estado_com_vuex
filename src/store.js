@@ -15,8 +15,15 @@ export default new Vuex.Store({
         buscarTarefaPorId: state => id => state.tarefas.find(t => t.id === id)
     },
     mutations: {
+        // before state snapshot
         listarTarefas: (state, { tarefas }) => {
-            state.tarefas = tarefas
+            console.log('before state snapshot')
+            setTimeout(() => {
+                state.tarefas = tarefas
+                console.log('callback executado')
+            }, 1000)
+            console.log('after state snapshot')
         }
+        // after state snapshot
     }
 })

@@ -74,30 +74,18 @@ export default {
         ])
     },
     created() {
-        /*this.$store.commit({
-            type: 'listarTarefas',
-            tarefas: [
-                { id: 1, titulo: 'Aprender Vue', concluido: true },
-                { id: 2, titulo: 'Aprender Vue Router', concluido: true },
-                { id: 3, titulo: 'Aprender Vuex', concluido: false }
-            ]
-        })*/
-        this.listarTarefas({
-            tarefas: [
-                { id: 1, titulo: 'Aprender Vue', concluido: true },
-                { id: 2, titulo: 'Aprender Vue Router', concluido: true },
-                { id: 3, titulo: 'Aprender Vuex', concluido: false }
-            ]
-        })
+        setTimeout(() => {
+            this.listarTarefas({
+                tarefas: [
+                    { id: 1, titulo: 'Aprender Vue', concluido: true },
+                    { id: 2, titulo: 'Aprender Vue Router', concluido: true },
+                    { id: 3, titulo: 'Aprender Vuex', concluido: false }
+                ]
+            })
+        }, 1000)
     },
     methods: {
-        // ...mapMutations(['listarTarefas']),
-        ...mapMutations({
-            carregarTarefas: 'listarTarefas',
-            listarTarefas: (commit, payload, options) => {
-                commit('listarTarefas', payload, options)
-            }
-        }),
+        ...mapMutations(['listarTarefas']),
         exibirFormularioCriarTarefa(event) {
             if (this.tarefaSelecionada) {
                 this.tarefaSelecionada = undefined
