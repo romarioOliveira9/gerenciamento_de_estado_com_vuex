@@ -1,16 +1,4 @@
-const state = {
-    tarefas: []
-}
-
-const getters = {
-    tarefasConcluidas: (state) => state.tarefas.filter(t => t.concluido),
-    tarefasAFazer: state => state.tarefas.filter(t => !t.concluido),
-    totalDeTarefasConcluidas: (state, getters) => getters.tarefasConcluidas.length,
-    buscarTarefaPorId: state => id => state.tarefas.find(t => t.id === id),
-    boasVindas: (state, getters, rootState, rootGetters) => rootGetters.mensagemBoasVindas
-}
-
-const actions = {
+export default {
     buscarTarefas: (context, payload) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -27,18 +15,4 @@ const actions = {
         commit('listarTarefas', { tarefas })
         dispatch('logar', 'Plínio Naves', { root: true })
     }
-}
-
-const mutations = {
-    listarTarefas: (state, { tarefas }) => {
-        state.tarefas = tarefas
-    }
-}
-
-export default {
-    namespaced: true,
-    state,
-    getters,
-    mutations,
-    actions
 }

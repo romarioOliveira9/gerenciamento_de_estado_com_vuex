@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import contador from '@/store/modules/contador'
-import tarefas from '@/store/modules/tarefas'
+import contador from '@/resources/contador/_store/index'
+import tarefas from '@/resources/tarefas/_store/index'
 
 Vue.use(Vuex)
 
