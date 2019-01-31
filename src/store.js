@@ -4,12 +4,17 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const contadorModule = {
+    namespaced: true,
     state: {
         contador: 0
+    },
+    getters: {
+        contadorAtual: state => state.contador
     }
 }
 
 const tarefasModule = {
+    namespaced: true,
     state: {
         tarefas: []
     },
