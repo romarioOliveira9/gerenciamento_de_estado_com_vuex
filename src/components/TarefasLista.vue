@@ -66,9 +66,9 @@ export default {
         }
     },
     computed: {
-        ...mapState(['tarefas']),
-        ...mapGetters([
-            'tarefasAFazer', 
+        ...mapState('tarefas', ['tarefas']),
+        ...mapGetters('tarefas', [
+            'tarefasAFazer',
             'tarefasConcluidas', 
             'totalDeTarefasConcluidas'
         ])
@@ -80,7 +80,7 @@ export default {
         }, 1000)
     },
     methods: {
-        ...mapActions({
+        ...mapActions('tarefas', {
             carregarTarefas: 'listarTarefas',
             listarTarefas: (dispatch, payload, options) => {
                 return dispatch('listarTarefas', payload, options)
