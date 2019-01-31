@@ -78,8 +78,14 @@ export default {
     },
     created() {
         setTimeout(async () => {
+
+            console.log('Usuário atual: ', this.boasVindas)
+
             await this.listarTarefas()
             console.log('Actions executadas!')
+
+            console.log('Usuário atual: ', this.boasVindas)
+
         }, 1000)
         console.log('Boas vindas: ', this.boasVindas)
     },
