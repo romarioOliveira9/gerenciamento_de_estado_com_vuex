@@ -3,6 +3,11 @@ import TarefasService from './../_services/TarefasService'
 import * as types from './mutation-types'
 
 export default {
+    concluirTarefa: async ({ dispatch }, payload) => {
+        const tarefa = Object.assign({}, payload.tarefa)
+        tarefa.concluido = !tarefa.concluido
+        dispatch('editarTarefa', { tarefa })
+    },
     criarTarefa: ({ commit }, { tarefa }) => {
         return TarefasService.postTarefa(tarefa)
             .then(response => commit(types.CRIAR_TAREFA, { tarefa: response.data }))
