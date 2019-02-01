@@ -23,5 +23,11 @@ export default {
     listarTarefas: async ({ commit }) => {
         const response = await TarefasService.getTarefas()
         commit(types.LISTAR_TAREFAS, { tarefas: response.data })
+    },
+    selecionarTarefa: ({ commit }, payload) => {
+        commit(types.SELECIONAR_TAREFA, payload)
+    },
+    resetarTarefaSelecionada: ({ commit }) => {
+        commit(types.SELECIONAR_TAREFA, { tarefa: undefined })
     }
 }
