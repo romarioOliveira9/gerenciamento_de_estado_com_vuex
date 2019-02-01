@@ -51,6 +51,7 @@
 
 import { createNamespacedHelpers } from 'vuex'
 
+import register from './../_store/register'
 import TarefaSalvar from './TarefaSalvar.vue'
 import TarefasListaIten from './TarefasListaIten.vue'
 
@@ -77,6 +78,9 @@ export default {
         ])
     },
     created() {
+
+        register(this.$store)
+
         setTimeout(async () => {
 
             console.log('Usuário atual: ', this.boasVindas)
